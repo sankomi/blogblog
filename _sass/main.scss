@@ -1,0 +1,28 @@
+* {
+	box-sizing: "border-box";
+}
+
+html {
+	font-family: monospace;
+}
+body {
+	max-width: 80rem;
+	padding: 1rem;
+	margin: 0 auto;
+}
+
+a {
+	color: crimson;
+}
+pre, :not(pre) > code {
+	color: black;
+	background: lavenderblush;
+}
+pre {
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+}
+:not(pre) > code {
+	padding: 1px 0.25rem;
+	border-radius: 0.25rem;
+}

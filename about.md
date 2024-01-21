@@ -52,6 +52,10 @@ jekyll build
 
 - `index.html` - home page using html
 - `about.md` - about page using markdown
+- `_config.yml` - configuration file
+- `assets` - folder for styles, scripts, images etc
+- `_sass` - contains sass files
 - `_layouts` - contains layouts
 - `_includes` - contains components
+- `_data` - contains data files like nav items
 - `_site` - generated files
