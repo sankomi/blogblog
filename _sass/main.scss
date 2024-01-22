@@ -26,3 +26,13 @@ pre {
 	padding: 1px 0.25rem;
 	border-radius: 0.25rem;
 }
+
+.post {
+	&__title {
+		margin-bottom: 0;
+	}
+	&__by {
+		margin: 0;
+		text-align: right;
+	}
+}
