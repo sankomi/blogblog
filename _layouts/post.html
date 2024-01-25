@@ -3,18 +3,30 @@ layout: default
 ---
 <div class="post">
 	<h1 class="post__title">{{ page.title }}</h1>
-	<p class="post__by">by {{ page.author }} on {{ page.date | date_to_string }}</p>
+	<p class="post__info">
+		<span class="post__by">
+			by {{ page.author }} on {{ page.date | date_to_string }}
+		</span>
+		<span class="post__categories">
+			{{ page.categories | join: ", " }}
+		</span>
+	</p>
 	{{ content }}
-	<div>
+</div>
+
+<div class="post-nav">
+	<span class="post-nav__previous">
 		{% if page.previous %}
-			<a href="{{ page.previous.url }}">previous</a>
+			<a href="{{ page.previous.url }}">&lt; Previous</a> {{ page.previous.title }}
 		{% else %}
-			<del>previous</del>
+			<span class="disabled">&lt; Previous</span>
 		{% endif %}
+	</span>
+	<span class="post-nav__next">
 		{% if page.next %}
-			<a href="{{ page.next.url }}">next</a>
+			{{ page.next.title }} <a href="{{ page.next.url }}">Next &gt;</a>
 		{% else %}
-			<del>next</del>
+			<span class="disabled">Next &gt;</span>
 		{% endif %}
-	</div>
+	</span>
 </div>

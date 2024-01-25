@@ -1,6 +1,6 @@
 ---
-title: about
+title: About
 ---
-# about
+# About
 
-this is a jekyll blog!
+This is a jekyll blog!

@@ -4,11 +4,30 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="robots" content="noindex">
-		<title>{{page.title}}</title>
+		<title>{{page.title}} | {{site.data.config.name}}</title>
 		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,600&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		{% include nav.html %}
-		{{content}}
+		<header class="header">
+			<div class="header__inner contain contain--padding">
+				<div class="title">
+					<a class="title__link" href="/">{{site.data.config.name}}</a>
+				</div>
+				{% include nav.html %}
+			</div>
+		</header>
+		<main class="main">
+			<div class="main__inner contain contain--padding-x">
+				{{content}}
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__inner contain contain--padding">
+				<div class="copyright">by {{site.data.config.author}} using Jekyll</div>
+			</div>
+		</footer>
 	</body>
 </html>

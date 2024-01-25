@@ -17,3 +17,6 @@ defaults:
     values:
       layout: "post"
       author: "sanko"
+
+exclude:
+  - help.rb

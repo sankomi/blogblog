@@ -1,32 +1,34 @@
 ---
-title: post helper
+title: Post helper
+categories: Notes Ruby
+tags: jekyll ruby
 ---
-simple ruby script to help write posts because writing dates is annoying :(
+Simple ruby script to help write posts because writing dates is annoying :(
 
-run `help.rb`, enter title and start editing! (uses `$EDITOR`)
+Run `help.rb`, enter title and start editing! (uses `$EDITOR`)
 
-## some interesting ruby stuff
+## Some interesting ruby stuff
 
-### (parentheses)
+### (Parentheses)
 
-parentheses are not required for methods
+Parentheses are not required for methods
 
-this prints string
+This prints string
 ```
 puts("ruby!")
 ```
 
-so does this
+So does this
 ```
 puts "ruby!"
 ```
 
-parenthesis are necessary if things get complicated ex
+Parenthesis are necessary if things get complicated ex
 ```
 "ruby".gsub("r", "l").gsub("b", "ck")
 ```
 
-### question mark?
+### Question mark?
 
 `?` after method name means it returns `true` or `false`
 ```
@@ -35,7 +37,7 @@ if File.exists? "file"
 end
 ```
 
-## unless...
+### Unless...
 
 `unless` is sort of reverse `if`
 ```
@@ -46,7 +48,7 @@ else
 end
 ```
 
-it can be used inline ex
+It can be used inline ex
 ```
 puts "ruby is not interesting" unless ruby == "interesting"
 ```
