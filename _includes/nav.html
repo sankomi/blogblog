@@ -1,4 +1,4 @@
-<nav class="nav">
+<nav id="nav" class="nav">
 	{% for item in site.data.nav %}
 		{% if page.url == item.link %}
 			<span class="nav__item nav__item--current">{{ item.name }}</span>

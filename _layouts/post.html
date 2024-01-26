@@ -2,31 +2,40 @@
 layout: default
 ---
 <div class="post">
-	<h1 class="post__title">{{ page.title }}</h1>
-	<p class="post__info">
-		<span class="post__by">
-			by {{ page.author }} on {{ page.date | date_to_string }}
-		</span>
-		<span class="post__categories">
-			{{ page.categories | join: ", " }}
-		</span>
-	</p>
-	{{ content }}
-</div>
+	<header class="post__header">
+		<object class="page__background" data="/assets/images/{{ page.background }}">
+			<img src="/assets/images/cat.jpg">
+		</object>
+		<div class="post__text contain contain--padding">
+			<h1 class="post__title">{{ page.title }}</h1>
+			<p class="post__info">
+				<span class="post__by">
+					by {{ page.author }} on {{ page.date | date_to_string }}
+				</span>
+				<span class="post__categories">
+					{{ page.categories | join: ", " }}
+				</span>
+			</p>
+		</div>
+	</header>
+	<div class="post__content contain contain--padding-x">
+		{{ content }}
 
-<div class="post-nav">
-	<span class="post-nav__previous">
-		{% if page.previous %}
-			<a href="{{ page.previous.url }}">&lt; Previous</a> {{ page.previous.title }}
-		{% else %}
-			<span class="disabled">&lt; Previous</span>
-		{% endif %}
-	</span>
-	<span class="post-nav__next">
-		{% if page.next %}
-			{{ page.next.title }} <a href="{{ page.next.url }}">Next &gt;</a>
-		{% else %}
-			<span class="disabled">Next &gt;</span>
-		{% endif %}
-	</span>
+		<div class="post-nav">
+			<span class="post-nav__previous">
+				{% if page.previous %}
+					<a href="{{ page.previous.url }}">&lt; Previous</a> {{ page.previous.title }}
+				{% else %}
+					<span class="disabled">&lt; Previous</span>
+				{% endif %}
+			</span>
+			<span class="post-nav__next">
+				{% if page.next %}
+					{{ page.next.title }} <a href="{{ page.next.url }}">Next &gt;</a>
+				{% else %}
+					<span class="disabled">Next &gt;</span>
+				{% endif %}
+			</span>
+		</div>
+	</div>
 </div>

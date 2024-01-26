@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-if ENV["EDITOR"].strip == ""
+if ENV["EDITOR"] == nil
   puts "no default editor set!"
   exit 1
 end

@@ -31,10 +31,15 @@ pre, :not(pre) > code {
 pre {
 	padding: 0.5rem;
 	border-radius: 0.5rem;
+
+	overflow-x: auto;
 }
 :not(pre) > code {
 	padding: 1px 0.25rem;
 	border-radius: 0.25rem;
+}
+ul, ol, dl {
+	padding-left: 1.5rem;
 }
 
 
@@ -60,7 +65,7 @@ pre {
 /* header and footer */
 
 .header {
-	padding: 0.5rem 0;
+	position: relative;
 
 	color: white;
 	background-color: crimson;
@@ -70,8 +75,15 @@ pre {
 		justify-content: space-between;
 		gap: 1rem;
 	}
+
+	@media (min-width: 30rem) {
+		padding: 0.5rem 0;
+	}
 }
 .title {
+	position: relative;
+	z-index: 12;
+
 	font-size: 2rem;
 	font-family: "Raleway", sans-serif;
 	font-weight: bold;
@@ -85,12 +97,101 @@ pre {
 		}
 	}
 }
+.nav-toggle {
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	z-index: 11;
+
+	display: block;
+	width: 2rem;
+	height: 2rem;
+	border: none;
+
+	color: white;
+	background-color: transparent;
+
+	cursor: pointer;
+	transform: translateY(-50%);
+
+	> span {
+		position: absolute;
+		top: 50%;
+		left: 20%;
+
+		display: block;
+		width: 60%;
+		height: 1px;
+
+		background-color: currentcolor;
+
+		transition: top 0.25s, transform 0.25s;
+
+		&:nth-child(1) {
+			top: 30%;
+		}
+		&:nth-child(3) {
+			top: 70%;
+		}
+		&:nth-child(4) {
+			transform: scale(0, 0) rotate(45deg);
+		}
+		&:nth-child(5) {
+			transform: scale(0, 0) rotate(-45deg);
+		}
+	}
+
+	&--open {
+		> span {
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(3) {
+				top: 50%;
+				transform: scale(0, 0);
+			}
+			&:nth-child(4) {
+				transform: scale(1, 1) rotate(45deg);
+			}
+			&:nth-child(5) {
+				transform: scale(1, 1) rotate(-45deg);
+			}
+		}
+	}
+
+	@media (min-width: 30rem) {
+		display: none;
+	}
+}
 .nav {
+	position: absolute;
+	right: 0;
+	bottom: 100%;
+	z-index: 10;
+
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 1rem;
+	width: 100%;
+	padding: 0 1rem 1rem;
 
 	font-family: "Raleway", sans-serif;
+	color: white;
+	background-color: crimson;
+	opacity: 0;
+
+	pointer-events: none;
+	transform: translateY(0);
+	transition: bottom 0.25s, opacity 0.25s, transform 0.25s;
+
+	&--open {
+		bottom: 0;
+
+		opacity: 1;
+
+		pointer-events: auto;
+		transform: translateY(100%);
+	}
 
 	&__item {
 		position: relative;
@@ -110,6 +211,23 @@ pre {
 			}
 		}
 	}
+
+	@media (min-width: 30rem) {
+		position: static;
+
+		flex-direction: row;
+		width: auto;
+		padding: 0;
+		gap: 0.5rem;
+
+		color: unset;
+		background-color: unset;
+		opacity: 1;
+
+		pointer-events: auto;
+		transform: none;
+		transition: none;
+	}
 }
 
 .footer {
@@ -128,6 +246,15 @@ pre {
 	padding-left: 0;
 
 	list-style: none;
+
+	&__divide {
+		width: 100%;
+		height: 1px;
+		margin: 2rem auto;
+		border: none;
+
+		background-color: lightgrey;
+	}
 }
 .blog-nav {
 	display: flex;
@@ -136,21 +263,89 @@ pre {
 }
 
 
-/* post styles */
+/* page and post styles */
 
-.post {
+.page, .post {
+	&__header {
+		position: relative;
+
+		padding: 0.02px;
+
+		background-color: black;
+	}
+	&__background {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: block;
+		width: 100%;
+		height: 100%;
+
+		opacity: 0.5;
+		object-fit: cover;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+
+			object-fit: cover;
+		}
+	}
+	&__text {
+		position: relative;
+		z-index: 1;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.5rem;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+
+		@media (min-width: 30rem) {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+		}
+	}
 	&__title {
-		margin-bottom: 0;
+		margin: 0;
+
+		color: white;
 	}
 	&__info {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
+		gap: 0.5rem;
+		margin: 0;
 
-		color: darkgrey;
+		color: lightgrey;
+	}
+	&__content {
+		padding-top: 1rem;
 	}
 }
 .post-nav {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	gap: 1rem;
 	margin: 2rem 0;
+
+	&__previous {
+		align-self: flex-start;
+	}
+	&__next {
+		align-self: flex-end;
+	}
+
+	@media (min-width: 30rem) {
+		flex-direction: row;
+		justify-content: space-between;
+
+		&__previous, &__next {
+			align-self: unset;
+		}
+	}
 }
