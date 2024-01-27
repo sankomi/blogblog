@@ -1,10 +1,36 @@
 permalink: pretty
 
 plugins:
-  - jekyll-paginate
+  - jekyll-paginate-v2
 
-paginate: 5
-paginate_path: "/blog/:num/"
+pagination:
+  enabled: true
+  debug: false
+  collection: "posts"
+  per_page: 5
+  title: ":title"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
+  category: "posts"
+  trail:
+    before: 1
+    after: 1
+
+autopages:
+  enabled: true
+  categories:
+    layouts:
+      - "list.html"
+    title: "Posts in :cat"
+    permalink: "/category/:cat"
+  tags:
+    layouts:
+      - "list.html"
+    title: "Posts tagged with :tag"
+    permalink: "/tag/:tag"
+  collections:
+    enabled: false
 
 defaults:
   - scope:

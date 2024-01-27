@@ -259,7 +259,14 @@ ul, ol, dl {
 .blog-nav {
 	display: flex;
 	justify-content: space-between;
+	gap: 0.5rem;
 	margin: 2rem 0;
+
+	&__trail {
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
+	}
 }
 
 
@@ -314,6 +321,10 @@ ul, ol, dl {
 		margin: 0;
 
 		color: lightgrey;
+
+		a {
+			color: inherit;
+		}
 	}
 	&__content {
 		padding-top: 1rem;

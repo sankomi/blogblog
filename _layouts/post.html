@@ -15,7 +15,9 @@ layout: default
 					by {{ page.author }} on {{ page.date | date_to_string }}
 				</span>
 				<span class="post__categories">
-					{{ page.categories | join: ", " }}
+					{% for category in page.categories %}
+						<a href="/category/{{category | slugify }}/">{{ category }}</a>
+					{% endfor %}
 				</span>
 			</p>
 		</div>
