@@ -3,9 +3,11 @@ layout: default
 ---
 <div class="page">
 	<header class="page__header">
-		<object class="page__background" data="/assets/images/{{ page.background }}">
-			<img src="/assets/images/cat.jpg">
-		</object>
+		{% if page.background == nil %}
+			<img class="page__background" src="/assets/images/default.jpg">
+		{% else %}
+			<img class="page__background" src="/assets/images/{{ page.background }}" onerror="this.src = '/assets/images/default.jpg';">
+		{% endif %}
 		<div class="page__text contain contain--padding">
 			<h1 class="page__title">{{ page.title }}</h1>
 		</div>
