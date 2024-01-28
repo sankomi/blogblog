@@ -3,7 +3,7 @@
 		{% if page.url == item.link %}
 			<span class="nav__item nav__item--current">{{ item.name }}</span>
 		{% else %}
-			<a class="nav__item" href="{{ item.link }}">{{ item.name }}</a>
+			<a class="nav__item" href="{{ item.link | prepend: site.baseurl }}">{{ item.name }}</a>
 		{% endif %}
 	{% endfor %}
 </nav>

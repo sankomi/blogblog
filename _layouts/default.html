@@ -6,8 +6,8 @@
 		<meta name="robots" content="noindex">
 		<title>{{ page.title }} | {{ site.data.config.name }}</title>
 
-		<link rel="stylesheet" href="/assets/css/style.css">
-		<script src="/assets/js/script.js" defer></script>
+		<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+		<script src="{{ site.baseurl }}/assets/js/script.js" defer></script>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
 		<header class="header">
 			<div class="header__inner contain contain--padding">
 				<div class="title">
-					<a class="title__link" href="/">{{ site.data.config.name }}</a>
+					<a class="title__link" href="{{ site.baseurl }}/">{{ site.data.config.name }}</a>
 				</div>
 				<button id="nav-toggle" class="nav-toggle">
 					<span></span>

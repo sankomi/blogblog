@@ -4,9 +4,9 @@ layout: default
 <div class="page">
 	<header class="page__header">
 		{% if page.background == nil %}
-			<img class="page__background" src="/assets/images/default.jpg">
+			<img class="page__background" src="{{ site.baseurl }}/assets/images/default.jpg">
 		{% else %}
-			<img class="page__background" src="/assets/images/{{ page.background }}" onerror="this.src = '/assets/images/default.jpg';">
+			<img class="page__background" src="{{ site.baseurl }}/assets/images/{{ page.background }}" onerror="this.src = '{{ site.baseurl }}/assets/images/default.jpg';">
 		{% endif %}
 		<div class="page__text contain contain--padding">
 			<h1 class="page__title">{{ page.title }}</h1>

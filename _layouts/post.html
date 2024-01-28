@@ -4,9 +4,9 @@ layout: default
 <div class="post">
 	<header class="post__header">
 		{% if page.background == nil %}
-			<img class="post__background" src="/assets/images/default.jpg">
+			<img class="post__background" src="{{ site.baseurl }}/assets/images/default.jpg">
 		{% else %}
-			<img class="post__background" src="/assets/images/{{ page.background }}" onerror="this.src = '/assets/images/default.jpg';">
+			<img class="post__background" src="{{ site.baseurl }}/assets/images/{{ page.background }}" onerror="this.src = '{{ site.baseurl }}/assets/images/default.jpg';">
 		{% endif %}
 		<div class="post__text contain contain--padding">
 			<h1 class="post__title">{{ page.title }}</h1>
@@ -16,7 +16,7 @@ layout: default
 				</span>
 				<span class="post__categories">
 					{% for category in page.categories %}
-						<a href="/category/{{category | slugify }}/">{{ category }}</a>
+						<a href="{{ site.baseurl }}/category/{{category | slugify }}/">{{ category }}</a>
 					{% endfor %}
 				</span>
 			</p>
@@ -28,14 +28,14 @@ layout: default
 		<div class="post-nav">
 			<span class="post-nav__previous">
 				{% if page.previous %}
-					<a href="{{ page.previous.url }}">&lt; Previous</a> {{ page.previous.title }}
+					<a href="{{ page.previous.url | prepend: site.baseurl }}">&lt; Previous</a> {{ page.previous.title }}
 				{% else %}
 					<span class="disabled">&lt; Previous</span>
 				{% endif %}
 			</span>
 			<span class="post-nav__next">
 				{% if page.next %}
-					{{ page.next.title }} <a href="{{ page.next.url }}">Next &gt;</a>
+					{{ page.next.title }} <a href="{{ page.next.url | prepend: site.baseurl }}">Next &gt;</a>
 				{% else %}
 					<span class="disabled">Next &gt;</span>
 				{% endif %}
